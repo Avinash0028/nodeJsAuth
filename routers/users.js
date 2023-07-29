@@ -5,7 +5,7 @@ import express from "express";
 import tryCatch from "../utils/tryCatch.js";
 
 // Importing users controllers
-import {getSingleUser, getMultipleUser} from "../controllers/users.js";
+import {getSingleUser, getMultipleUser, createUser} from "../controllers/users.js";
 
 // Storing Express Router into route constant
 const route = express.Router();
@@ -17,6 +17,9 @@ route.get("/", tryCatch(getMultipleUser));
 
 // GET "/single" route to get single Users details
 route.get("/single", tryCatch(getSingleUser));
+
+// POST "/create" route to create new User
+route.post("/create", tryCatch(createUser));
 
 // Exporting route as default
 export default route;
